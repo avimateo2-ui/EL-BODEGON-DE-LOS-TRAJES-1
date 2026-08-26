@@ -544,18 +544,63 @@ a { text-decoration: none; color: inherit; }
 
 /* ---- TEMPORADA ---- */
 .temporada {
-  background: var(--bg-primary);
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.temporada .section-label {
+  color: var(--gold);
+}
+
+.temporada .section-title {
+  color: #1a1a1a;
+}
+
+.temporada .section-subtitle {
+  color: #666666;
+}
+
+.temporada-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.temp-filter-btn {
+  background: transparent;
+  border: 2px solid #e0e0e0;
+  color: #666666;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.temp-filter-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.temp-filter-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #ffffff;
 }
 
 .temporada-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .temporada-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
   border-radius: var(--radius);
   padding: 1.5rem;
   transition: var(--transition);
@@ -565,131 +610,103 @@ a { text-decoration: none; color: inherit; }
 
 .temporada-card:hover {
   transform: translateY(-5px);
-  border-color: var(--border-gold);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .temporada-month {
   font-family: 'Playfair Display', serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
   margin-bottom: 0.75rem;
 }
 
 .temporada-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  color: #1a1a1a;
 }
 
 .temporada-card p {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  font-size: 0.85rem;
+  color: #666666;
+  line-height: 1.6;
 }
 
-.temporada-actual {
-  border-color: var(--gold);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(201, 168, 76, 0.08) 100%);
-}
-
-.temporada-actual::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--gold);
-}
-
-/* Colores por mes */
+/* Colores por mes en fondo blanco */
 .mes-enero {
-  border-left: 3px solid var(--mes-enero);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 58, 95, 0.1) 100%);
+  border-left: 4px solid var(--mes-enero);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(30, 58, 95, 0.05) 100%);
 }
 .mes-enero .temporada-month { color: var(--mes-enero); }
-.mes-enero:hover { border-color: var(--mes-enero); }
 
 .mes-febrero {
-  border-left: 3px solid var(--mes-febrero);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 34, 82, 0.1) 100%);
+  border-left: 4px solid var(--mes-febrero);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(139, 34, 82, 0.05) 100%);
 }
 .mes-febrero .temporada-month { color: var(--mes-febrero); }
-.mes-febrero:hover { border-color: var(--mes-febrero); }
 
 .mes-marzo {
-  border-left: 3px solid var(--mes-marzo);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(45, 90, 39, 0.1) 100%);
+  border-left: 4px solid var(--mes-marzo);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(45, 90, 39, 0.05) 100%);
 }
 .mes-marzo .temporada-month { color: var(--mes-marzo); }
-.mes-marzo:hover { border-color: var(--mes-marzo); }
 
 .mes-abril {
-  border-left: 3px solid var(--mes-abril);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 69, 19, 0.1) 100%);
+  border-left: 4px solid var(--mes-abril);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(139, 69, 19, 0.05) 100%);
 }
 .mes-abril .temporada-month { color: var(--mes-abril); }
-.mes-abril:hover { border-color: var(--mes-abril); }
 
 .mes-mayo {
-  border-left: 3px solid var(--mes-mayo);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(85, 107, 47, 0.1) 100%);
+  border-left: 4px solid var(--mes-mayo);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(85, 107, 47, 0.05) 100%);
 }
 .mes-mayo .temporada-month { color: var(--mes-mayo); }
-.mes-mayo:hover { border-color: var(--mes-mayo); }
 
 .mes-junio {
-  border-left: 3px solid var(--mes-junio);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(184, 134, 11, 0.1) 100%);
+  border-left: 4px solid var(--mes-junio);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(184, 134, 11, 0.05) 100%);
 }
 .mes-junio .temporada-month { color: var(--mes-junio); }
-.mes-junio:hover { border-color: var(--mes-junio); }
 
 .mes-julio {
-  border-left: 3px solid var(--mes-julio);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(25, 25, 112, 0.1) 100%);
+  border-left: 4px solid var(--mes-julio);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(25, 25, 112, 0.05) 100%);
 }
 .mes-julio .temporada-month { color: var(--mes-julio); }
-.mes-julio:hover { border-color: var(--mes-julio); }
 
 .mes-agosto {
-  border-left: 3px solid var(--mes-agosto);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(74, 74, 74, 0.1) 100%);
+  border-left: 4px solid var(--mes-agosto);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(74, 74, 74, 0.05) 100%);
 }
 .mes-agosto .temporada-month { color: var(--mes-agosto); }
-.mes-agosto:hover { border-color: var(--mes-agosto); }
 
 .mes-septiembre {
-  border-left: 3px solid var(--mes-septiembre);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(199, 21, 133, 0.1) 100%);
+  border-left: 4px solid var(--mes-septiembre);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(199, 21, 133, 0.05) 100%);
 }
 .mes-septiembre .temporada-month { color: var(--mes-septiembre); }
-.mes-septiembre:hover { border-color: var(--mes-septiembre); }
 
 .mes-octubre {
-  border-left: 3px solid var(--mes-octubre-naranja);
-  background: linear-gradient(135deg, var(--mes-octubre-negro) 0%, rgba(255, 102, 0, 0.15) 100%);
+  border-left: 4px solid var(--mes-octubre-naranja);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 102, 0, 0.08) 100%);
 }
 .mes-octubre .temporada-month { color: var(--mes-octubre-naranja); }
 .mes-octubre h3 { color: var(--mes-octubre-naranja); }
-.mes-octubre:hover { border-color: var(--mes-octubre-naranja); }
 
 .mes-noviembre {
-  border-left: 3px solid var(--mes-noviembre);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 139, 139, 0.1) 100%);
+  border-left: 4px solid var(--mes-noviembre);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(0, 139, 139, 0.05) 100%);
 }
 .mes-noviembre .temporada-month { color: var(--mes-noviembre); }
-.mes-noviembre:hover { border-color: var(--mes-noviembre); }
 
 .mes-diciembre {
-  border-left: 3px solid var(--mes-diciembre-rojo);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(178, 34, 34, 0.1) 100%);
+  border-left: 4px solid var(--mes-diciembre-rojo);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(178, 34, 34, 0.05) 100%);
 }
 .mes-diciembre .temporada-month { 
   background: linear-gradient(90deg, var(--mes-diciembre-rojo), var(--mes-diciembre-verde));
@@ -698,10 +715,6 @@ a { text-decoration: none; color: inherit; }
   background-clip: text;
 }
 .mes-diciembre h3 { color: var(--mes-diciembre-rojo); }
-.mes-diciembre:hover { 
-  border-color: var(--mes-diciembre-rojo);
-  box-shadow: 0 0 20px rgba(178, 34, 34, 0.2);
-}
 
 /* ---- CONTACTO ---- */
 .contacto {

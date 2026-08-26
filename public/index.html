@@ -52,65 +52,79 @@
     <div class="section-container">
       <div class="section-label">01 — Temporada</div>
       <h2 class="section-title center">Temporada 2026</h2>
-      <p class="section-subtitle">Descubre nuestra colección para cada mes del año</p>
+      <p class="section-subtitle">Descubre nuestra colección para cada estación del año</p>
 
-      <div class="temporada-grid">
-        <div class="temporada-card mes-enero">
+      <div class="temporada-filters">
+        <button class="temp-filter-btn active" data-season="invierno">Invierno</button>
+        <button class="temp-filter-btn" data-season="otono">Otoño</button>
+        <button class="temp-filter-btn" data-season="primavera">Primavera</button>
+        <button class="temp-filter-btn" data-season="verano">Verano</button>
+      </div>
+
+      <div class="temporada-grid" id="temporadaGrid">
+        <!-- INVIERNO -->
+        <div class="temporada-card mes-enero" data-season="invierno">
           <div class="temporada-month">Ene</div>
           <h3>Invierno</h3>
           <p>Trajes de tejidos pesados y colores oscuros para la temporada fría</p>
         </div>
-        <div class="temporada-card mes-febrero">
+        <div class="temporada-card mes-febrero" data-season="invierno">
           <div class="temporada-month">Feb</div>
           <h3>Invierno</h3>
           <p>Colección romántica con tonos sobrios y elegantes</p>
         </div>
-        <div class="temporada-card mes-marzo">
-          <div class="temporada-month">Mar</div>
-          <h3>Transición</h3>
-          <p>Tejidos livianos comienzan a llegar para la nueva estación</p>
-        </div>
-        <div class="temporada-card mes-abril">
-          <div class="temporada-month">Abr</div>
-          <h3>Otoño</h3>
-          <p>Colores tierra y tonos cálidos para el otoño</p>
-        </div>
-        <div class="temporada-card mes-mayo">
-          <div class="temporada-month">May</div>
-          <h3>Otoño</h3>
-          <p>Colección formal con capas y texturas profundas</p>
-        </div>
-        <div class="temporada-card mes-junio">
-          <div class="temporada-month">Jun</div>
-          <h3>Otoño</h3>
-          <p>Últimos modelos de la temporada antes del cambio</p>
-        </div>
-        <div class="temporada-card mes-julio">
+        <div class="temporada-card mes-julio" data-season="invierno">
           <div class="temporada-month">Jul</div>
           <h3>Invierno</h3>
           <p>Tejidos gruesos y abrigos para los días más fríos</p>
         </div>
-        <div class="temporada-card mes-agosto">
+        <div class="temporada-card mes-agosto" data-season="invierno">
           <div class="temporada-month">Ago</div>
           <h3>Invierno</h3>
           <p>Colección premium con materiales de alta gama</p>
         </div>
-        <div class="temporada-card mes-septiembre">
+
+        <!-- OTOÑO -->
+        <div class="temporada-card mes-abril" data-season="otono">
+          <div class="temporada-month">Abr</div>
+          <h3>Otoño</h3>
+          <p>Colores tierra y tonos cálidos para el otoño</p>
+        </div>
+        <div class="temporada-card mes-mayo" data-season="otono">
+          <div class="temporada-month">May</div>
+          <h3>Otoño</h3>
+          <p>Colección formal con capas y texturas profundas</p>
+        </div>
+        <div class="temporada-card mes-junio" data-season="otono">
+          <div class="temporada-month">Jun</div>
+          <h3>Otoño</h3>
+          <p>Últimos modelos de la temporada antes del cambio</p>
+        </div>
+
+        <!-- PRIMAVERA -->
+        <div class="temporada-card mes-marzo" data-season="primavera">
+          <div class="temporada-month">Mar</div>
+          <h3>Primavera</h3>
+          <p>Tejidos livianos comienzan a llegar para la nueva estación</p>
+        </div>
+        <div class="temporada-card mes-septiembre" data-season="primavera">
           <div class="temporada-month">Sep</div>
           <h3>Primavera</h3>
           <p>Transición a colores claros y tejidos frescos</p>
         </div>
-        <div class="temporada-card mes-octubre">
+        <div class="temporada-card mes-octubre" data-season="primavera">
           <div class="temporada-month">Oct</div>
           <h3>Primavera</h3>
           <p>Temporada de degustación — El mes del vino y los sabores</p>
         </div>
-        <div class="temporada-card mes-noviembre">
+        <div class="temporada-card mes-noviembre" data-season="primavera">
           <div class="temporada-month">Nov</div>
           <h3>Primavera</h3>
           <p>Primavera plena con estampados y colores vibrantes</p>
         </div>
-        <div class="temporada-card mes-diciembre">
+
+        <!-- VERANO -->
+        <div class="temporada-card mes-diciembre" data-season="verano">
           <div class="temporada-month">Dic</div>
           <h3>Verano</h3>
           <p>Colección festiva para fin de año y celebraciones</p>
@@ -484,6 +498,25 @@
       navToggle.classList.remove('active');
       navMenu.classList.remove('open');
     }));
+
+    // Season filters
+    const tempFilterBtns = document.querySelectorAll('.temp-filter-btn');
+    const tempCards = document.querySelectorAll('.temporada-card');
+    tempFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tempFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const season = btn.dataset.season;
+        tempCards.forEach(card => {
+          if (season === 'all' || card.dataset.season === season) {
+            card.style.display = '';
+            card.style.animation = 'fadeInUp 0.5s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
 
     // Catalog filters
     const filterBtns = document.querySelectorAll('.filter-btn');
