@@ -18,6 +18,22 @@
   --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
   --radius: 12px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Colores por mes */
+  --mes-enero: #1e3a5f;
+  --mes-febrero: #8b2252;
+  --mes-marzo: #2d5a27;
+  --mes-abril: #8b4513;
+  --mes-mayo: #556b2f;
+  --mes-junio: #b8860b;
+  --mes-julio: #191970;
+  --mes-agosto: #4a4a4a;
+  --mes-septiembre: #c71585;
+  --mes-octubre-naranja: #ff6600;
+  --mes-octubre-negro: #1a1a1a;
+  --mes-noviembre: #008b8b;
+  --mes-diciembre-rojo: #b22222;
+  --mes-diciembre-verde: #228b22;
 }
 
 *, *::before, *::after {
@@ -590,6 +606,101 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
   height: 3px;
   background: var(--gold);
+}
+
+/* Colores por mes */
+.mes-enero {
+  border-left: 3px solid var(--mes-enero);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 58, 95, 0.1) 100%);
+}
+.mes-enero .temporada-month { color: var(--mes-enero); }
+.mes-enero:hover { border-color: var(--mes-enero); }
+
+.mes-febrero {
+  border-left: 3px solid var(--mes-febrero);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 34, 82, 0.1) 100%);
+}
+.mes-febrero .temporada-month { color: var(--mes-febrero); }
+.mes-febrero:hover { border-color: var(--mes-febrero); }
+
+.mes-marzo {
+  border-left: 3px solid var(--mes-marzo);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(45, 90, 39, 0.1) 100%);
+}
+.mes-marzo .temporada-month { color: var(--mes-marzo); }
+.mes-marzo:hover { border-color: var(--mes-marzo); }
+
+.mes-abril {
+  border-left: 3px solid var(--mes-abril);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 69, 19, 0.1) 100%);
+}
+.mes-abril .temporada-month { color: var(--mes-abril); }
+.mes-abril:hover { border-color: var(--mes-abril); }
+
+.mes-mayo {
+  border-left: 3px solid var(--mes-mayo);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(85, 107, 47, 0.1) 100%);
+}
+.mes-mayo .temporada-month { color: var(--mes-mayo); }
+.mes-mayo:hover { border-color: var(--mes-mayo); }
+
+.mes-junio {
+  border-left: 3px solid var(--mes-junio);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(184, 134, 11, 0.1) 100%);
+}
+.mes-junio .temporada-month { color: var(--mes-junio); }
+.mes-junio:hover { border-color: var(--mes-junio); }
+
+.mes-julio {
+  border-left: 3px solid var(--mes-julio);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(25, 25, 112, 0.1) 100%);
+}
+.mes-julio .temporada-month { color: var(--mes-julio); }
+.mes-julio:hover { border-color: var(--mes-julio); }
+
+.mes-agosto {
+  border-left: 3px solid var(--mes-agosto);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(74, 74, 74, 0.1) 100%);
+}
+.mes-agosto .temporada-month { color: var(--mes-agosto); }
+.mes-agosto:hover { border-color: var(--mes-agosto); }
+
+.mes-septiembre {
+  border-left: 3px solid var(--mes-septiembre);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(199, 21, 133, 0.1) 100%);
+}
+.mes-septiembre .temporada-month { color: var(--mes-septiembre); }
+.mes-septiembre:hover { border-color: var(--mes-septiembre); }
+
+.mes-octubre {
+  border-left: 3px solid var(--mes-octubre-naranja);
+  background: linear-gradient(135deg, var(--mes-octubre-negro) 0%, rgba(255, 102, 0, 0.15) 100%);
+}
+.mes-octubre .temporada-month { color: var(--mes-octubre-naranja); }
+.mes-octubre h3 { color: var(--mes-octubre-naranja); }
+.mes-octubre:hover { border-color: var(--mes-octubre-naranja); }
+
+.mes-noviembre {
+  border-left: 3px solid var(--mes-noviembre);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 139, 139, 0.1) 100%);
+}
+.mes-noviembre .temporada-month { color: var(--mes-noviembre); }
+.mes-noviembre:hover { border-color: var(--mes-noviembre); }
+
+.mes-diciembre {
+  border-left: 3px solid var(--mes-diciembre-rojo);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(178, 34, 34, 0.1) 100%);
+}
+.mes-diciembre .temporada-month { 
+  background: linear-gradient(90deg, var(--mes-diciembre-rojo), var(--mes-diciembre-verde));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.mes-diciembre h3 { color: var(--mes-diciembre-rojo); }
+.mes-diciembre:hover { 
+  border-color: var(--mes-diciembre-rojo);
+  box-shadow: 0 0 20px rgba(178, 34, 34, 0.2);
 }
 
 /* ---- CONTACTO ---- */
