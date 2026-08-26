@@ -90,6 +90,15 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
 }
 
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-left: 0.75rem;
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -517,6 +526,72 @@ a { text-decoration: none; color: inherit; }
   color: var(--text-muted);
 }
 
+/* ---- TEMPORADA ---- */
+.temporada {
+  background: var(--bg-primary);
+}
+
+.temporada-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.temporada-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.temporada-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow);
+}
+
+.temporada-month {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.temporada-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.temporada-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.temporada-actual {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(201, 168, 76, 0.08) 100%);
+}
+
+.temporada-actual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold);
+}
+
 /* ---- CONTACTO ---- */
 .contacto {
   background: var(--bg-secondary);
@@ -761,6 +836,10 @@ a { text-decoration: none; color: inherit; }
   .stats {
     gap: 1.5rem;
   }
+
+  .temporada-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -803,6 +882,11 @@ a { text-decoration: none; color: inherit; }
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1rem;
   }
+
+  .temporada-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -810,4 +894,6 @@ a { text-decoration: none; color: inherit; }
   .section-container { padding: 0 1.25rem; }
   .contacto-form { padding: 1.5rem; }
   .catalogo-grid { grid-template-columns: 1fr; }
+  .temporada-grid { grid-template-columns: 1fr 1fr; }
+  .nav-brand { font-size: 0.9rem; margin-left: 0.5rem; }
 }
