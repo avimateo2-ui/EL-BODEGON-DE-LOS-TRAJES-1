@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Express & Docker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <div class="container">
+    <header class="header">
+      <div class="badge">
+        <span class="pulse-dot"></span>
+        <span>Docker + Git Ready</span>
+      </div>
+      <h1>Proyecto Configurado con Éxito</h1>
+      <p class="subtitle">Estructura limpia con Node.js, Express, Docker Compose y control de versiones Git.</p>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🐳</div>
+        <h3>Docker Compose</h3>
+        <p>Levanta el entorno con recarga y puertos listos para producción y desarrollo.</p>
+        <code>docker compose up -d</code>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Node.js & Express</h3>
+        <p>Servidor web optimizado con soporte para rutas estáticas y endpoints API REST.</p>
+        <code>npm run dev</code>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Control Git</h3>
+        <p>Repositorio preparado con .gitignore completo y commits limpios listos para remoto.</p>
+        <code>git status</code>
+      </div>
+    </div>
+
+    <div class="api-check card">
+      <h3>Estado de la API</h3>
+      <div id="status-box" class="status-box">Consultando estado del servidor...</div>
+      <button id="btn-refresh" class="btn">Probar API (/api/status)</button>
+    </div>
+  </div>
+
+  <script>
+    async function checkStatus() {
+      const box = document.getElementById('status-box');
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+        box.textContent = JSON.stringify(data, null, 2);
+        box.className = 'status-box status-ok';
+      } catch (err) {
+        box.textContent = 'Error conectando con el servidor: ' + err.message;
+        box.className = 'status-box status-err';
+      }
+    }
+
+    document.getElementById('btn-refresh').addEventListener('click', checkStatus);
+    checkStatus();
+  </script>
+</body>
+</html>
