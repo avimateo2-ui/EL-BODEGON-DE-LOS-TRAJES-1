@@ -1,75 +1,58 @@
-# Proyecto Web Node.js + Express + Docker + Git
+# El Bodegón de los Trajes
 
-Estructura lista para producción y desarrollo local con contenedores Docker y control de versiones Git.
+Página web profesional para **El Bodegón de los Trajes** — Elegancia, estilo y distinción en cada prenda.
 
----
+## Estructura del Proyecto
 
-## 🚀 Inicio Rápido con Docker
+```
+defintivo/
+├── public/
+│   ├── index.html        # Página principal
+│   └── style.css         # Estilos premium
+├── img/
+│   ├── logo.jpg          # Logo oficial
+│   └── *.jpg             # Imágenes del catálogo
+├── server.js             # Servidor Express
+├── package.json          # Dependencias Node.js
+├── Dockerfile            # Configuración Docker
+├── docker-compose.yml    # Orquestación Docker
+├── .gitignore            # Archivos ignorados por Git
+└── .dockerignore         # Archivos ignorados por Docker
+```
+
+## Inicio Rápido
+
+### Con Docker (Recomendado)
 
 ```bash
-# 1. Levantar el proyecto con Docker Compose
+# Construir y ejecutar
 docker compose up -d --build
 
-# 2. Ver estado de los contenedores
-docker compose ps
-
-# 3. Ver logs en tiempo real
-docker compose logs -f
-
-# 4. Detener el contenedor
+# Detener
 docker compose down
 ```
 
-La aplicación estará disponible en: **`http://localhost:3000`**
+El sitio estará disponible en: **http://localhost:3000**
 
----
-
-## 💻 Inicio Rápido Local (Sin Docker)
+### Sin Docker
 
 ```bash
-# Instalar dependencias
 npm install
-
-# Iniciar en modo desarrollo
-npm run dev
-
-# Iniciar en producción
 npm start
 ```
 
----
+## Ramas
 
-## 🌿 Flujo de Git
+| Rama | Descripción |
+|------|-------------|
+| `main` | Producción estable |
+| `develop` | Desarrollo activo |
 
-```bash
-# Ver estado
-git status
+## Funcionalidades
 
-# Crear una rama para una nueva funcionalidad
-git checkout -b feat/mi-funcionalidad
-
-# Guardar cambios
-git add .
-git commit -m "feat: implementacion de funcionalidad"
-
-# Subir cambios al repositorio remoto
-git push origin feat/mi-funcionalidad
-```
-
----
-
-## 📁 Estructura del Proyecto
-
-```text
-├── img/                # Directorio de imágenes y recursos
-├── public/             # Frontend estático (HTML, CSS, JS)
-│   ├── index.html
-│   └── style.css
-├── .dockerignore       # Archivos excluidos de la imagen Docker
-├── .gitignore          # Archivos excluidos de Git
-├── Dockerfile          # Definición de la imagen de Docker
-├── docker-compose.yml  # Orquestación y puertos del contenedor
-├── package.json        # Dependencias y scripts de Node.js
-├── README.md           # Guía del proyecto
-└── server.js           # Servidor Express y endpoints API
-```
+- Diseño responsive y profesional
+- Menú de navegación con scroll suave
+- Secciones: Inicio, Sobre Nosotros, Catálogo, Contacto
+- Filtros de catálogo por categoría
+- Formulario de contacto
+- Optimizado para Docker con healthcheck

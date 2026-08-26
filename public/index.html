@@ -3,71 +3,451 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto Express & Docker</title>
+  <title>El Bodegón de los Trajes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background-glow"></div>
 
-  <div class="container">
-    <header class="header">
-      <div class="badge">
-        <span class="pulse-dot"></span>
-        <span>Docker + Git Ready</span>
-      </div>
-      <h1>Proyecto Configurado con Éxito</h1>
-      <p class="subtitle">Estructura limpia con Node.js, Express, Docker Compose y control de versiones Git.</p>
-    </header>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        <img src="/img/logo.jpg" alt="El Bodegón de los Trajes" class="logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+        <li><a href="#nosotros" class="nav-link">Sobre Nosotros</a></li>
+        <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon">🐳</div>
-        <h3>Docker Compose</h3>
-        <p>Levanta el entorno con recarga y puertos listos para producción y desarrollo.</p>
-        <code>docker compose up -d</code>
-      </div>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Est. 2024</div>
+      <img src="/img/logo.jpg" alt="Logo" class="hero-logo">
+      <h1 class="hero-title">El Bodegón de los Trajes</h1>
+      <p class="hero-subtitle">Elegancia, estilo y distinción en cada prenda. Trajes a medida que definen tu imagen.</p>
+      <a href="#catalogo" class="hero-btn">Ver Catálogo</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Node.js & Express</h3>
-        <p>Servidor web optimizado con soporte para rutas estáticas y endpoints API REST.</p>
-        <code>npm run dev</code>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🌿</div>
-        <h3>Control Git</h3>
-        <p>Repositorio preparado con .gitignore completo y commits limpios listos para remoto.</p>
-        <code>git status</code>
+  <!-- SOBRE NOSOTROS -->
+  <section class="section nosotros" id="nosotros">
+    <div class="section-container">
+      <div class="section-label">01 — Sobre Nosotros</div>
+      <div class="nosotros-grid">
+        <div class="nosotros-text">
+          <h2 class="section-title">Tradición y<br>Excelencia</h2>
+          <p class="nosotros-desc">
+            En <strong>El Bodegón de los Trajes</strong> nos dedicamos a crear experiencias únicas en moda masculina y femenina. Con años de trayectoria, ofrecemos trajes de la más alta calidad, diseñados para quienes buscan sobresalir con elegancia.
+          </p>
+          <p class="nosotros-desc">
+            Cada pieza es seleccionada con esmero, combinando los mejores tejidos con un acabado impecable. Nuestro compromiso es que cada cliente se sienta único.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Clientes Satisfechos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Calidad Garantizada</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">24h</span>
+              <span class="stat-label">Servicio Express</span>
+            </div>
+          </div>
+        </div>
+        <div class="nosotros-images">
+          <div class="img-card img-card-1">
+            <img src="/img/jr.jpg" alt="Traje elegante">
+          </div>
+          <div class="img-card img-card-2">
+            <img src="/img/jr2.jpg" alt="Traje formal">
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="api-check card">
-      <h3>Estado de la API</h3>
-      <div id="status-box" class="status-box">Consultando estado del servidor...</div>
-      <button id="btn-refresh" class="btn">Probar API (/api/status)</button>
+  <!-- CATÁLOGO -->
+  <section class="section catalogo" id="catalogo">
+    <div class="section-container">
+      <div class="section-label">02 — Catálogo</div>
+      <h2 class="section-title center">Nuestra Colección</h2>
+      <p class="section-subtitle">Descubre nuestros trajes y uniformes diseñados para cada ocasión</p>
+
+      <div class="catalogo-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="traje">Trajes</button>
+        <button class="filter-btn" data-filter="uniforme">Uniformes</button>
+        <button class="filter-btn" data-filter="especial">Especiales</button>
+      </div>
+
+      <div class="catalogo-grid">
+        <div class="catalogo-card" data-category="traje">
+          <div class="card-img-wrap">
+            <img src="/img/images.jpg" alt="Traje elegante">
+            <div class="card-overlay">
+              <span class="card-tag">Traje</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Elegante</h3>
+            <p>Clásico y sofisticado para toda ocasión</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="traje">
+          <div class="card-img-wrap">
+            <img src="/img/images2.jpg" alt="Traje premium">
+            <div class="card-overlay">
+              <span class="card-tag">Traje</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Premium</h3>
+            <p>Acabado fino y tela de primera calidad</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="uniforme">
+          <div class="card-img-wrap">
+            <img src="/img/uniforme_colegio.jpg" alt="Uniforme colegio">
+            <div class="card-overlay">
+              <span class="card-tag">Uniforme</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Uniforme Colegio</h3>
+            <p>Uniformes institucionales de alto estándar</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="especial">
+          <div class="card-img-wrap">
+            <img src="/img/bata_laboratorio.jpg" alt="Bata laboratorio">
+            <div class="card-overlay">
+              <span class="card-tag">Especial</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Bata de Laboratorio</h3>
+            <p>Profesional y funcional</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="especial">
+          <div class="card-img-wrap">
+            <img src="/img/reyes_magos.jpg" alt="Traje Reyes Magos">
+            <div class="card-overlay">
+              <span class="card-tag">Especial</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Reyes Magos</h3>
+            <p>Disfraces y trajes temáticos</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="traje">
+          <div class="card-img-wrap">
+            <img src="/img/img13.jpg" alt="Traje formal">
+            <div class="card-overlay">
+              <span class="card-tag">Traje</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Formal</h3>
+            <p>Para eventos de alto nivel</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="traje">
+          <div class="card-img-wrap">
+            <img src="/img/img14.jpg" alt="Traje商务">
+            <div class="card-overlay">
+              <span class="card-tag">Traje</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Ejecutivo</h3>
+            <p>Imagen corporativa impecable</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="traje">
+          <div class="card-img-wrap">
+            <img src="/img/img15.jpg" alt="Traje moderno">
+            <div class="card-overlay">
+              <span class="card-tag">Traje</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Moderno</h3>
+            <p>Corte actual y diseño contemporáneo</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="especial">
+          <div class="card-img-wrap">
+            <img src="/img/img16.jpg" alt="Pieza especial">
+            <div class="card-overlay">
+              <span class="card-tag">Especial</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Pieza Exclusiva</h3>
+            <p>Diseño único y personalizado</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="traje">
+          <div class="card-img-wrap">
+            <img src="/img/img17.jpg" alt="Traje clásico">
+            <div class="card-overlay">
+              <span class="card-tag">Traje</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Traje Clásico</h3>
+            <p>El timeless por excelencia</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="uniforme">
+          <div class="card-img-wrap">
+            <img src="/img/descarga4.jpg" alt="Uniforme institucional">
+            <div class="card-overlay">
+              <span class="card-tag">Uniforme</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Uniforme Institucional</h3>
+            <p>Para empresas y organizaciones</p>
+          </div>
+        </div>
+
+        <div class="catalogo-card" data-category="uniforme">
+          <div class="card-img-wrap">
+            <img src="/img/descarga5.jpg" alt="Uniforme ejecutivo">
+            <div class="card-overlay">
+              <span class="card-tag">Uniforme</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Uniforme Ejecutivo</h3>
+            <p>Professionalismo en cada detalle</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section contacto" id="contacto">
+    <div class="section-container">
+      <div class="section-label">03 — Contacto</div>
+      <h2 class="section-title center">Ponte en Contacto</h2>
+      <p class="section-subtitle">Estamos listos para atenderte y crear el traje perfecto para ti</p>
+
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <div class="contacto-item">
+            <div class="contacto-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Ubicación</h4>
+              <p>Tu ciudad, Tu país</p>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="contacto-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Teléfono</h4>
+              <p>+1 (XXX) XXX-XXXX</p>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="contacto-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info@bodegondelosttrajes.com</p>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="contacto-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Horario</h4>
+              <p>Lun - Vie: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contacto-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio</label>
+            <select id="servicio" name="servicio">
+              <option value="">Selecciona un servicio</option>
+              <option value="traje-medida">Traje a medida</option>
+              <option value="traje-listo">Traje Listo</option>
+              <option value="uniforme">Uniforme Institucional</option>
+              <option value="modificacion">Modificación</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué necesitas..."></textarea>
+          </div>
+          <button type="submit" class="form-btn">
+            <span>Enviar Mensaje</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/img/logo.jpg" alt="El Bodegón de los Trajes" class="footer-logo">
+          <p>Elegancia y distinción en cada prenda.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navegación</h4>
+          <a href="#inicio">Inicio</a>
+          <a href="#nosotros">Sobre Nosotros</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div class="footer-links">
+          <h4>Servicios</h4>
+          <a href="#catalogo">Trajes a Medida</a>
+          <a href="#catalogo">Uniformes</a>
+          <a href="#catalogo">Modificaciones</a>
+          <a href="#catalogo">Asesoría de Imagen</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 El Bodegón de los Trajes. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    async function checkStatus() {
-      const box = document.getElementById('status-box');
-      try {
-        const res = await fetch('/api/status');
-        const data = await res.json();
-        box.textContent = JSON.stringify(data, null, 2);
-        box.className = 'status-box status-ok';
-      } catch (err) {
-        box.textContent = 'Error conectando con el servidor: ' + err.message;
-        box.className = 'status-box status-err';
-      }
-    }
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-    document.getElementById('btn-refresh').addEventListener('click', checkStatus);
-    checkStatus();
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        if (window.scrollY >= top) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+
+    // Close mobile menu on link click
+    navLinks.forEach(link => link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navMenu.classList.remove('open');
+    }));
+
+    // Catalog filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.catalogo-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = '';
+            card.style.animation = 'fadeInUp 0.5s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Form submit
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-btn span');
+      btn.textContent = '¡Mensaje Enviado!';
+      setTimeout(() => { btn.textContent = 'Enviar Mensaje'; }, 3000);
+      e.target.reset();
+    });
+
+    // Scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section, .hero-content').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
