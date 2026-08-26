@@ -560,161 +560,264 @@ a { text-decoration: none; color: inherit; }
   color: #666666;
 }
 
-.temporada-filters {
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #e0e0e0 0%, #d0d0d0 50%, #e0e0e0 100%);
+  border-radius: 3px;
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--mes-enero), var(--mes-febrero), var(--mes-marzo), var(--mes-abril), var(--mes-mayo), var(--mes-junio), var(--mes-julio), var(--mes-agosto), var(--mes-septiembre), var(--mes-octubre-naranja), var(--mes-noviembre), var(--mes-diciembre-rojo));
+  border-radius: 3px;
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.4);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border: 3px solid #e0e0e0;
+  border-radius: 50%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-.temp-filter-btn {
-  background: transparent;
-  border: 2px solid #e0e0e0;
-  color: #666666;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.temp-filter-btn:hover {
+.timeline-dot:hover {
+  transform: scale(1.15);
   border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+}
+
+.dot-icon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.timeline-dot:hover .dot-icon {
+  transform: scale(1.2);
+}
+
+.timeline-content {
+  background: #ffffff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.timeline-content:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.12);
+  transform: translateX(5px);
+}
+
+.timeline-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 1rem;
+  transition: background 0.3s ease;
+}
+
+.timeline-toggle:hover {
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.timeline-toggle.active {
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.toggle-season {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 120px;
+  transition: color 0.3s ease;
+}
+
+.timeline-toggle.active .toggle-season {
   color: var(--gold);
 }
 
-.temp-filter-btn.active {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #ffffff;
+.toggle-months {
+  font-size: 0.85rem;
+  color: #999999;
+  flex: 1;
+  font-weight: 500;
 }
 
-.temporada-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+.toggle-arrow {
+  color: var(--gold);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.temporada-card {
-  background: #f8f8f8;
-  border: 1px solid #e0e0e0;
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  transition: var(--transition);
-  position: relative;
+.timeline-toggle.active .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.timeline-details {
+  max-height: 0;
   overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease;
+  padding: 0 1.5rem;
 }
 
-.temporada-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.timeline-details.open {
+  max-height: 1200px;
+  padding: 0 1.5rem 1.5rem;
 }
 
-.temporada-month {
+.detail-card {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.timeline-details.open .detail-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-details.open .detail-card:nth-child(1) { transition-delay: 0.1s; }
+.timeline-details.open .detail-card:nth-child(2) { transition-delay: 0.2s; }
+.timeline-details.open .detail-card:nth-child(3) { transition-delay: 0.3s; }
+.timeline-details.open .detail-card:nth-child(4) { transition-delay: 0.4s; }
+
+.detail-card:last-child {
+  margin-bottom: 0;
+}
+
+.detail-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
+}
+
+.detail-month {
   font-family: 'Playfair Display', serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
-}
-
-.temporada-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #1a1a1a;
 }
 
-.temporada-card p {
+.detail-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+}
+
+.detail-card p {
   font-size: 0.85rem;
   color: #666666;
   line-height: 1.6;
 }
 
-/* Colores por mes en fondo blanco */
-.mes-enero {
-  border-left: 4px solid var(--mes-enero);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(30, 58, 95, 0.05) 100%);
-}
-.mes-enero .temporada-month { color: var(--mes-enero); }
+/* Colores detail cards */
+.mes-enero { border-left: 4px solid var(--mes-enero); }
+.mes-enero .detail-month { color: var(--mes-enero); }
 
-.mes-febrero {
-  border-left: 4px solid var(--mes-febrero);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(139, 34, 82, 0.05) 100%);
-}
-.mes-febrero .temporada-month { color: var(--mes-febrero); }
+.mes-febrero { border-left: 4px solid var(--mes-febrero); }
+.mes-febrero .detail-month { color: var(--mes-febrero); }
 
-.mes-marzo {
-  border-left: 4px solid var(--mes-marzo);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(45, 90, 39, 0.05) 100%);
-}
-.mes-marzo .temporada-month { color: var(--mes-marzo); }
+.mes-marzo { border-left: 4px solid var(--mes-marzo); }
+.mes-marzo .detail-month { color: var(--mes-marzo); }
 
-.mes-abril {
-  border-left: 4px solid var(--mes-abril);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(139, 69, 19, 0.05) 100%);
-}
-.mes-abril .temporada-month { color: var(--mes-abril); }
+.mes-abril { border-left: 4px solid var(--mes-abril); }
+.mes-abril .detail-month { color: var(--mes-abril); }
 
-.mes-mayo {
-  border-left: 4px solid var(--mes-mayo);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(85, 107, 47, 0.05) 100%);
-}
-.mes-mayo .temporada-month { color: var(--mes-mayo); }
+.mes-mayo { border-left: 4px solid var(--mes-mayo); }
+.mes-mayo .detail-month { color: var(--mes-mayo); }
 
-.mes-junio {
-  border-left: 4px solid var(--mes-junio);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(184, 134, 11, 0.05) 100%);
-}
-.mes-junio .temporada-month { color: var(--mes-junio); }
+.mes-junio { border-left: 4px solid var(--mes-junio); }
+.mes-junio .detail-month { color: var(--mes-junio); }
 
-.mes-julio {
-  border-left: 4px solid var(--mes-julio);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(25, 25, 112, 0.05) 100%);
-}
-.mes-julio .temporada-month { color: var(--mes-julio); }
+.mes-julio { border-left: 4px solid var(--mes-julio); }
+.mes-julio .detail-month { color: var(--mes-julio); }
 
-.mes-agosto {
-  border-left: 4px solid var(--mes-agosto);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(74, 74, 74, 0.05) 100%);
-}
-.mes-agosto .temporada-month { color: var(--mes-agosto); }
+.mes-agosto { border-left: 4px solid var(--mes-agosto); }
+.mes-agosto .detail-month { color: var(--mes-agosto); }
 
-.mes-septiembre {
-  border-left: 4px solid var(--mes-septiembre);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(199, 21, 133, 0.05) 100%);
-}
-.mes-septiembre .temporada-month { color: var(--mes-septiembre); }
+.mes-septiembre { border-left: 4px solid var(--mes-septiembre); }
+.mes-septiembre .detail-month { color: var(--mes-septiembre); }
 
-.mes-octubre {
-  border-left: 4px solid var(--mes-octubre-naranja);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 102, 0, 0.08) 100%);
-}
-.mes-octubre .temporada-month { color: var(--mes-octubre-naranja); }
-.mes-octubre h3 { color: var(--mes-octubre-naranja); }
+.mes-octubre { border-left: 4px solid var(--mes-octubre-naranja); }
+.mes-octubre .detail-month { color: var(--mes-octubre-naranja); }
 
-.mes-noviembre {
-  border-left: 4px solid var(--mes-noviembre);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(0, 139, 139, 0.05) 100%);
-}
-.mes-noviembre .temporada-month { color: var(--mes-noviembre); }
+.mes-noviembre { border-left: 4px solid var(--mes-noviembre); }
+.mes-noviembre .detail-month { color: var(--mes-noviembre); }
 
-.mes-diciembre {
-  border-left: 4px solid var(--mes-diciembre-rojo);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(178, 34, 34, 0.05) 100%);
-}
-.mes-diciembre .temporada-month { 
+.mes-diciembre { border-left: 4px solid var(--mes-diciembre-rojo); }
+.mes-diciembre .detail-month { 
   background: linear-gradient(90deg, var(--mes-diciembre-rojo), var(--mes-diciembre-verde));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.mes-diciembre h3 { color: var(--mes-diciembre-rojo); }
+
+/* Timeline active states */
+.timeline-item.active .timeline-dot {
+  background: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.timeline-item.active .timeline-dot .dot-icon {
+  filter: brightness(0) invert(1);
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.8); }
+}
 
 /* ---- CONTACTO ---- */
 .contacto {
@@ -964,6 +1067,26 @@ a { text-decoration: none; color: inherit; }
   .temporada-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
+
+  .timeline-line,
+  .timeline-progress {
+    left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+  }
+
+  .timeline-dot {
+    left: 10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .toggle-season {
+    min-width: 100px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1011,6 +1134,42 @@ a { text-decoration: none; color: inherit; }
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 1rem;
   }
+
+  .timeline-line,
+  .timeline-progress {
+    left: 15px;
+  }
+
+  .timeline-item {
+    padding-left: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-dot {
+    left: 5px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .dot-icon {
+    font-size: 0.7rem;
+  }
+
+  .timeline-toggle {
+    padding: 1rem 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .toggle-season {
+    font-size: 1rem;
+    min-width: auto;
+  }
+
+  .toggle-months {
+    font-size: 0.8rem;
+    width: 100%;
+    order: 3;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1020,4 +1179,23 @@ a { text-decoration: none; color: inherit; }
   .catalogo-grid { grid-template-columns: 1fr; }
   .temporada-grid { grid-template-columns: 1fr 1fr; }
   .nav-brand { font-size: 0.9rem; margin-left: 0.5rem; }
+
+  .timeline-line,
+  .timeline-progress {
+    left: 12px;
+  }
+
+  .timeline-item {
+    padding-left: 45px;
+  }
+
+  .timeline-dot {
+    left: 2px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .detail-card {
+    padding: 1rem;
+  }
 }

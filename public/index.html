@@ -54,81 +54,142 @@
       <h2 class="section-title center">Temporada 2026</h2>
       <p class="section-subtitle">Disfraces y vestidos elegantes para cada momento del año</p>
 
-      <div class="temporada-filters">
-        <button class="temp-filter-btn active" data-season="invierno">Invierno</button>
-        <button class="temp-filter-btn" data-season="otono">Otoño</button>
-        <button class="temp-filter-btn" data-season="primavera">Primavera</button>
-        <button class="temp-filter-btn" data-season="verano">Verano</button>
-      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-progress" id="timelineProgress"></div>
 
-      <div class="temporada-grid" id="temporadaGrid">
         <!-- INVIERNO -->
-        <div class="temporada-card mes-enero" data-season="invierno">
-          <div class="temporada-month">Enero</div>
-          <h3>Festividades de Fin de Año</h3>
-          <p>Disfraces de gala y vestidos de gala para celebraciones. Temática de Reyes Magos y trajes de ceremonia para eventos formales.</p>
-        </div>
-        <div class="temporada-card mes-febrero" data-season="invierno">
-          <div class="temporada-month">Febrero</div>
-          <h3>Día del Amor</h3>
-          <p>Vestidos elegantes para San Valentín. Disfraces románticos y trajes de pareja para veladas especiales.</p>
-        </div>
-        <div class="temporada-card mes-julio" data-season="invierno">
-          <div class="temporada-month">Julio</div>
-          <h3>Temporada Fría</h3>
-          <p>Vestidos de lana y tejidos cálidos. Disfraces de personajes de invierno y trajes con capas y accesorios.</p>
-        </div>
-        <div class="temporada-card mes-agosto" data-season="invierno">
-          <div class="temporada-month">Agosto</div>
-          <h3>Fiestas Patraonales</h3>
-          <p>Disfraces temáticos para festividades locales. Vestidos elegantes para celebraciones y eventos comunitarios.</p>
+        <div class="timeline-item" data-season="invierno">
+          <div class="timeline-dot">
+            <span class="dot-icon">❄</span>
+          </div>
+          <div class="timeline-content">
+            <button class="timeline-toggle" data-season="invierno">
+              <span class="toggle-season">Invierno</span>
+              <span class="toggle-months">Ene · Feb · Jul · Ago</span>
+              <span class="toggle-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="timeline-details" data-season="invierno">
+              <div class="detail-card mes-enero">
+                <div class="detail-month">Enero</div>
+                <h4>Festividades de Fin de Año</h4>
+                <p>Disfraces de gala y vestidos de gala para celebraciones. Temática de Reyes Magos y trajes de ceremonia para eventos formales.</p>
+              </div>
+              <div class="detail-card mes-febrero">
+                <div class="detail-month">Febrero</div>
+                <h4>Día del Amor</h4>
+                <p>Vestidos elegantes para San Valentín. Disfraces románticos y trajes de pareja para veladas especiales.</p>
+              </div>
+              <div class="detail-card mes-julio">
+                <div class="detail-month">Julio</div>
+                <h4>Temporada Fría</h4>
+                <p>Vestidos de lana y tejidos cálidos. Disfraces de personajes de invierno y trajes con capas y accesorios.</p>
+              </div>
+              <div class="detail-card mes-agosto">
+                <div class="detail-month">Agosto</div>
+                <h4>Fiestas Patronales</h4>
+                <p>Disfraces temáticos para festividades locales. Vestidos elegantes para celebraciones y eventos comunitarios.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- OTOÑO -->
-        <div class="temporada-card mes-abril" data-season="otono">
-          <div class="temporada-month">Abril</div>
-          <h3>Festival de Teatro</h3>
-          <p>Disfraces para obras de teatro y eventos culturales. Vestidos de época y trajes históricos para representaciones.</p>
-        </div>
-        <div class="temporada-card mes-mayo" data-season="otono">
-          <div class="temporada-month">Mayo</div>
-          <h3>Fiestas Patrias</h3>
-          <p>Vestidos elegantes para celebraciones patrias. Disfraces con colores nacionales y trajes formales para eventos cívicos.</p>
-        </div>
-        <div class="temporada-card mes-junio" data-season="otono">
-          <div class="temporada-month">Junio</div>
-          <h3>Festival de Danza</h3>
-          <p>Vestidos para danza folclórica y ballet. Disfraces para presentaciones artísticas y eventos culturales.</p>
+        <div class="timeline-item" data-season="otono">
+          <div class="timeline-dot">
+            <span class="dot-icon">🍂</span>
+          </div>
+          <div class="timeline-content">
+            <button class="timeline-toggle" data-season="otono">
+              <span class="toggle-season">Otoño</span>
+              <span class="toggle-months">Abr · May · Jun</span>
+              <span class="toggle-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="timeline-details" data-season="otono">
+              <div class="detail-card mes-abril">
+                <div class="detail-month">Abril</div>
+                <h4>Festival de Teatro</h4>
+                <p>Disfraces para obras de teatro y eventos culturales. Vestidos de época y trajes históricos para representaciones.</p>
+              </div>
+              <div class="detail-card mes-mayo">
+                <div class="detail-month">Mayo</div>
+                <h4>Fiestas Patrias</h4>
+                <p>Vestidos elegantes para celebraciones patrias. Disfraces con colores nacionales y trajes formales para eventos cívicos.</p>
+              </div>
+              <div class="detail-card mes-junio">
+                <div class="detail-month">Junio</div>
+                <h4>Festival de Danza</h4>
+                <p>Vestidos para danza folclórica y ballet. Disfraces para presentaciones artísticas y eventos culturales.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- PRIMAVERA -->
-        <div class="temporada-card mes-marzo" data-season="primavera">
-          <div class="temporada-month">Marzo</div>
-          <h3>Carnavales</h3>
-          <p>Disfraces coloridos y llamativos para carnavales. Vestidos con plumas, lentejuelas y accesorios brillantes.</p>
-        </div>
-        <div class="temporada-card mes-septiembre" data-season="primavera">
-          <div class="temporada-month">Septiembre</div>
-          <h3>Fiestas de lazos</h3>
-          <p>Vestidos elegantes para fiestas patronales. Disfraces tradicionales y trajes típicos para celebraciones locales.</p>
-        </div>
-        <div class="temporada-card mes-octubre" data-season="primavera">
-          <div class="temporada-month">Octubre</div>
-          <h3>Día de los Difuntos</h3>
-          <p>Disfraces de catrinas y catrines. Vestidos elegantes con temática mexicana y trajes para eventos culturales.</p>
-        </div>
-        <div class="temporada-card mes-noviembre" data-season="primavera">
-          <div class="temporada-month">Noviembre</div>
-          <h3>Festival de Mascaras</h3>
-          <p>Disfraces con máscaras y accesorios. Vestidos elegantes para galas y eventos de máscaras.</p>
+        <div class="timeline-item" data-season="primavera">
+          <div class="timeline-dot">
+            <span class="dot-icon">🌸</span>
+          </div>
+          <div class="timeline-content">
+            <button class="timeline-toggle" data-season="primavera">
+              <span class="toggle-season">Primavera</span>
+              <span class="toggle-months">Mar · Sep · Oct · Nov</span>
+              <span class="toggle-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="timeline-details" data-season="primavera">
+              <div class="detail-card mes-marzo">
+                <div class="detail-month">Marzo</div>
+                <h4>Carnavales</h4>
+                <p>Disfraces coloridos y llamativos para carnavales. Vestidos con plumas, lentejuelas y accesorios brillantes.</p>
+              </div>
+              <div class="detail-card mes-septiembre">
+                <div class="detail-month">Septiembre</div>
+                <h4>Fiestas de Lazos</h4>
+                <p>Vestidos elegantes para fiestas patronales. Disfraces tradicionales y trajes típicos para celebraciones locales.</p>
+              </div>
+              <div class="detail-card mes-octubre">
+                <div class="detail-month">Octubre</div>
+                <h4>Día de los Difuntos</h4>
+                <p>Disfraces de catrinas y catrines. Vestidos elegantes con temática mexicana y trajes para eventos culturales.</p>
+              </div>
+              <div class="detail-card mes-noviembre">
+                <div class="detail-month">Noviembre</div>
+                <h4>Festival de Máscaras</h4>
+                <p>Disfraces con máscaras y accesorios. Vestidos elegantes para galas y eventos de máscaras.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- VERANO -->
-        <div class="temporada-card mes-diciembre" data-season="verano">
-          <div class="temporada-month">Diciembre</div>
-          <h3>Fiestas Navideñas</h3>
-          <p>Vestidos elegantes para cenas de Navidad. Disfraces de personajes navideños y trajes para eventos festivos.</p>
+        <div class="timeline-item" data-season="verano">
+          <div class="timeline-dot">
+            <span class="dot-icon">☀</span>
+          </div>
+          <div class="timeline-content">
+            <button class="timeline-toggle" data-season="verano">
+              <span class="toggle-season">Verano</span>
+              <span class="toggle-months">Dic</span>
+              <span class="toggle-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="timeline-details" data-season="verano">
+              <div class="detail-card mes-diciembre">
+                <div class="detail-month">Diciembre</div>
+                <h4>Fiestas Navideñas</h4>
+                <p>Vestidos elegantes para cenas de Navidad. Disfraces de personajes navideños y trajes para eventos festivos.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -499,24 +560,81 @@
       navMenu.classList.remove('open');
     }));
 
-    // Season filters
-    const tempFilterBtns = document.querySelectorAll('.temp-filter-btn');
-    const tempCards = document.querySelectorAll('.temporada-card');
-    tempFilterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tempFilterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const season = btn.dataset.season;
-        tempCards.forEach(card => {
-          if (season === 'all' || card.dataset.season === season) {
-            card.style.display = '';
-            card.style.animation = 'fadeInUp 0.5s ease forwards';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+    // Timeline accordion
+    const timelineToggles = document.querySelectorAll('.timeline-toggle');
+    const timelineDetails = document.querySelectorAll('.timeline-details');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineProgress = document.getElementById('timelineProgress');
+
+    timelineToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const season = toggle.dataset.season;
+        const details = document.querySelector(`.timeline-details[data-season="${season}"]`);
+        const item = toggle.closest('.timeline-item');
+        const isOpen = details.classList.contains('open');
+
+        // Cerrar todos
+        timelineDetails.forEach(d => d.classList.remove('open'));
+        timelineToggles.forEach(t => t.classList.remove('active'));
+        timelineItems.forEach(i => i.classList.remove('active'));
+
+        // Abrir el seleccionado si estaba cerrado
+        if (!isOpen) {
+          details.classList.add('open');
+          toggle.classList.add('active');
+          item.classList.add('active');
+        }
+
+        // Actualizar línea de progreso
+        updateTimelineProgress();
       });
     });
+
+    function updateTimelineProgress() {
+      const items = document.querySelectorAll('.timeline-item');
+      let lastActiveIndex = -1;
+
+      items.forEach((item, index) => {
+        if (item.classList.contains('active')) {
+          lastActiveIndex = index;
+        }
+      });
+
+      if (lastActiveIndex >= 0) {
+        const item = items[lastActiveIndex];
+        const dot = item.querySelector('.timeline-dot');
+        const rect = dot.getBoundingClientRect();
+        const section = document.querySelector('.timeline');
+        const sectionRect = section.getBoundingClientRect();
+        const height = rect.top - sectionRect.top + rect.height / 2;
+        timelineProgress.style.height = height + 'px';
+      } else {
+        timelineProgress.style.height = '0';
+      }
+    }
+
+    // Scroll animation for timeline
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+        }
+      });
+    }, { threshold: 0.2 });
+
+    timelineItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-30px)';
+      item.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
+      timelineObserver.observe(item);
+    });
+
+    // Abrir automáticamente la primera temporada
+    setTimeout(() => {
+      const firstToggle = document.querySelector('.timeline-toggle');
+      if (firstToggle) firstToggle.click();
+    }, 800);
 
     // Catalog filters
     const filterBtns = document.querySelectorAll('.filter-btn');
